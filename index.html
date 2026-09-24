@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maksym | Personal Website</title>
+
+    <meta name="description" content="Personal website of Maksym — my interests, goals and personal journey.">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            background: #101820;
+            line-height: 1.6;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+                url("background.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 25px 8%;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #4ade80;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 600px;
+            color: #dddddd;
+        }
+
+        .hero-button {
+            margin-top: 30px;
+
+            padding: 14px 30px;
+
+            background: #22c55e;
+            color: white;
+
+            border: none;
+            border-radius: 8px;
+
+            font-size: 17px;
+            cursor: pointer;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            background: #16a34a;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 50px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #17212b;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+
+            text-align: center;
+
+            font-size: 19px;
+            color: #d1d5db;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: flex;
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 280px;
+
+            padding: 30px;
+
+            background: #1f2937;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+        }
+
+        /* ================= GOALS ================= */
+
+        .goals {
+            background: #111827;
+        }
+
+        .goal-list {
+            max-width: 600px;
+
+            margin: auto;
+
+            list-style: none;
+        }
+
+        .goal-list li {
+            background: #1f2937;
+
+            margin-bottom: 12px;
+
+            padding: 16px 20px;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .goal-list li:hover {
+            transform: translateX(8px);
+        }
+
+        /* ================= HOUSE ================= */
+
+        .dream-house {
+            text-align: center;
+
+            background: #17212b;
+        }
+
+        .dream-house img {
+            width: 300px;
+            max-width: 100%;
+
+            border-radius: 15px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+            transition: 0.3s;
+        }
+
+        .dream-house img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ================= JAVASCRIPT MESSAGE ================= */
+
+        .message-box {
+            margin-top: 30px;
+
+            opacity: 0;
+
+            transition: 0.5s;
+
+            font-size: 20px;
+
+            color: #4ade80;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        .message-button {
+            margin-top: 25px;
+
+            padding: 12px 25px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #22c55e;
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .message-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            background: #0b1120;
+
+            color: #94a3b8;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header id="home">
+
+        <nav>
+
+            <div class="logo">
+                Maksym
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#interests">Interests</a>
+                </li>
+
+                <li>
+                    <a href="#goals">Goals</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="hero">
+
+            <h1>Hello, I'm Maksym</h1>
+
+            <p>
+                Welcome to my personal website.
+                Here you can learn more about my interests,
+                goals and personal journey.
+            </p>
+
+            <a href="#about" class="hero-button">
+                Discover More
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                I believe that life is about constantly moving forward,
+                learning from difficulties and working toward meaningful goals.
+            </p>
+
+            <br>
+
+            <p>
+                This website represents a small part of my journey,
+                my interests and the things I want to achieve in the future.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTERESTS ================= -->
+
+    <section id="interests">
+
+        <h2 class="section-title">
+            My Interests
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🎾 Tennis</h3>
+
+                <p>
+                    Staying active and improving my skills through tennis.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>💪 Fitness</h3>
+
+                <p>
+                    Training and maintaining a healthy and active lifestyle.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🎮 Gaming</h3>
+
+                <p>
+                    Playing games and exploring different gaming experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GOALS ================= -->
+
+    <section class="goals" id="goals">
+
+        <h2 class="section-title">
+            My Goals
+        </h2>
+
+        <ul class="goal-list">
+
+            <li>
+                🚀 Build my own business
+            </li>
+
+            <li>
+                🏠 Own my own house
+            </li>
+
+            <li>
+                🚗 Buy my own car
+            </li>
+
+            <li>
+                ❤️ Build a big and happy family
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- ================= DREAM HOUSE ================= -->
+
+    <section class="dream-house">
+
+        <h2 class="section-title">
+            One of My Dreams
+        </h2>
+
+        <img
+            src="house.jpg"
+            alt="My dream house"
+        >
+
+        <br>
+
+        <button
+            class="message-button"
+            onclick="showMessage()"
+        >
+            Click Me
+        </button>
+
+        <div
+            id="message"
+            class="message-box"
+        >
+            Keep moving forward. Your goals are worth it. 💪
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Maksym. Personal Website.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function showMessage() {
+
+            const message =
+                document.getElementById("message");
+
+            message.classList.toggle("show");
+
+        }
+
+    </script>
+
+</body>
+
+</html>

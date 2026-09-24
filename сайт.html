@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя первая страница</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: lightblue;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* чтобы смена цвета была видна сквозь картинку */
+        background-blend-mode: multiply;
+        /* плавная смена цвета фона */
+        transition: background-color 0.5s;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    img {
+        border-radius: 10px;
+        position: relative;
+        right: 60px;
+        top: 40px;
+        box-shadow: 2px 2px 5px black;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    img:hover {
+        transform: scale(1.05);
+        box-shadow: 4px 4px 7px black;
+    }
+
+    /* Кнопка "клац" */
+    #myButton {
+        position: fixed;
+        top: 50px;
+        right: 50px;
+        background-color: green;
+        color: white;
+        padding: 15px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    #myButton:hover {
+        transform: scale(1.1);
+    }
+
+    /* Кнопка "Сменить цвет" */
+    #colorButton {
+        position: fixed;
+        top: 110px;
+        right: 50px;
+        background-color: darkorange;
+        color: white;
+        padding: 15px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    #colorButton:hover {
+        transform: scale(1.1);
+    }
+
+    /* Скрытое сообщение */
+    #message {
+        opacity: 0;
+        transition: opacity 0.5s;
+        position: fixed;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        padding: 25px;
+        border-radius: 15px;
+        text-shadow: 2px 2px 2px green;
+        font-size: 24px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+</style>
+
+</head>
+
+<body>
+
+<p id="text">Я пришел на этот свет изначально чтобы справляться со своими трудностями</p>
+
+<h2>Мои увлечения</h2>
+<ul>
+    <li>Теннис</li>
+    <li>Зарядка</li>
+    <li>Игры</li>
+</ul>
+
+<h2>Мои цели</h2>
+<ul>
+    <li>Свой бизнес</li>
+    <li>Свой дом</li>
+    <li>Своя машина</li>
+    <li>Большая семья</li>
+</ul>
+
+<a href="https://centrarium.com/budva/dom-v-budve-przhno-ploshhad-473m2-77094.html">Моя цель</a>
+
+<div id="message">Ты красавчик, продолжай двигаться к цели 💪</div>
+
+<button id="myButton" onclick="toggleMessage()">клац</button>
+<button id="colorButton" onclick="changeColor()">Сменить цвет</button>
+
+<img id="img" src="house.jpg" alt="Одна из моих целей" width="200">
+
+<script>
+    // ---------- Показ / скрытие сообщения ----------
+    function toggleMessage() {
+        const msg = document.getElementById('message');
+        const btn = document.getElementById('myButton');
+
+        // getComputedStyle спрашивает у браузера реальное значение opacity
+        const visible = getComputedStyle(msg).opacity === '1';
+
+        if (visible) {
+            msg.style.opacity = 0;
+            btn.innerText = "клац";
+        } else {
+            msg.style.opacity = 1;
+            btn.innerText = "Скрыть";
+        }
+    }
+
+    // ---------- Смена цвета фона по кругу ----------
+    const colors = ['lightblue', 'lightgreen', '#ffcccc', '#e0b3ff'];
+    let colorIndex = 0;
+
+    function changeColor() {
+        colorIndex = (colorIndex + 1) % colors.length;
+        document.body.style.backgroundColor = colors[colorIndex];
+    }
+</script>
+
+</body>
+</html>
